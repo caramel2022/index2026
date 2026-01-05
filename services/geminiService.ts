@@ -8,15 +8,15 @@ export const generatePerformanceReport = async (data: CompetencyRow[]): Promise<
   if (!apiKey) throw new Error("API Key missing");
 
   const prompt = `
-    تحليل بيانات أداء التلاميذ التالية وتقديم تقرير مفصل:
+    ØªØ­ÙÙÙ Ø¨ÙØ§ÙØ§Øª Ø£Ø¯Ø§Ø¡ Ø§ÙØªÙØ§ÙÙØ° Ø§ÙØªØ§ÙÙØ© ÙØªÙØ¯ÙÙ ØªÙØ±ÙØ± ÙÙØµÙ:
     
     ${JSON.stringify(data.map(d => ({ code: d.code, desc: d.description, mastery: d.mastery })))}
 
-    المطلوب:
-    1. تحديد نقاط القوة (الكفايات ذات نسبة تحكم عالية).
-    2. تحديد نقاط الضعف (الكفايات ذات نسبة تحكم منخفضة).
-    3. تقديم توصيات تربوية وعلاجية محددة لتحسين الأداء في نقاط الضعف.
-    4. اجعل التقرير بصيغة Markdown، واستخدم عناوين واضحة باللغة العربية.
+    Ø§ÙÙØ·ÙÙØ¨:
+    1. ØªØ­Ø¯ÙØ¯ ÙÙØ§Ø· Ø§ÙÙÙØ© (Ø§ÙÙÙØ§ÙØ§Øª Ø°Ø§Øª ÙØ³Ø¨Ø© ØªØ­ÙÙ Ø¹Ø§ÙÙØ©).
+    2. ØªØ­Ø¯ÙØ¯ ÙÙØ§Ø· Ø§ÙØ¶Ø¹Ù (Ø§ÙÙÙØ§ÙØ§Øª Ø°Ø§Øª ÙØ³Ø¨Ø© ØªØ­ÙÙ ÙÙØ®ÙØ¶Ø©).
+    3. ØªÙØ¯ÙÙ ØªÙØµÙØ§Øª ØªØ±Ø¨ÙÙØ© ÙØ¹ÙØ§Ø¬ÙØ© ÙØ­Ø¯Ø¯Ø© ÙØªØ­Ø³ÙÙ Ø§ÙØ£Ø¯Ø§Ø¡ ÙÙ ÙÙØ§Ø· Ø§ÙØ¶Ø¹Ù.
+    4. Ø§Ø¬Ø¹Ù Ø§ÙØªÙØ±ÙØ± Ø¨ØµÙØºØ© MarkdownØ ÙØ§Ø³ØªØ®Ø¯Ù Ø¹ÙØ§ÙÙÙ ÙØ§Ø¶Ø­Ø© Ø¨Ø§ÙÙØºØ© Ø§ÙØ¹Ø±Ø¨ÙØ©.
   `;
 
   try {
@@ -24,7 +24,7 @@ export const generatePerformanceReport = async (data: CompetencyRow[]): Promise<
       model: 'gemini-3-flash-preview',
       contents: prompt,
     });
-    return response.text || "لم يتم إنشاء التقرير.";
+    return response.text || "ÙÙ ÙØªÙ Ø¥ÙØ´Ø§Ø¡ Ø§ÙØªÙØ±ÙØ±.";
   } catch (error) {
     console.error("Error generating report:", error);
     throw error;
